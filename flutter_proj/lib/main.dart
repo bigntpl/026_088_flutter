@@ -204,10 +204,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       'Index 3: Working on it',
       style: optionStyle,
     ),
-    Text(
-      'Index 4: working on it',
-      style: optionStyle,
-    ),
+
   ];
 
   void _onItemTapped(int index) {
@@ -236,17 +233,18 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.business),
-            label: 'Business',
+            label: 'Compass',
             backgroundColor: Color(0xFFAED581),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
+            icon: Icon(Icons.group),
+            label: 'About US',
             backgroundColor: Color(0xFFAED581),
           ),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Color(0xFF1B5E20),
+        backgroundColor: Color(0xFFAED581),
         onTap: _onItemTapped,
       ),
 
