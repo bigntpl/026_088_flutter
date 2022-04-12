@@ -1,4 +1,4 @@
-# named_route
+# RightWay App
 
 A new Flutter project.
 
