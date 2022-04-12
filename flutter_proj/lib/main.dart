@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'compass.dart';
 
 void main() => runApp(const MyApp());
 
@@ -198,10 +199,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
-    Text(
-      'Index 2: Working on it',
-      style: optionStyle,
-    ),
+    Compass(),
     Text(
       'Index 3: Working on it',
       style: optionStyle,
@@ -246,16 +244,12 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             label: 'School',
             backgroundColor: Color(0xFFAED581),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
-            backgroundColor: Color(0xFFAED581),
-          ),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Color(0xFF1B5E20),
         onTap: _onItemTapped,
       ),
+
     );
   }
 }
