@@ -196,16 +196,17 @@ class MyStatefulWidget extends StatefulWidget {
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
-  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  TextStyle(fontSize: 20, fontWeight: FontWeight.bold);
   static List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
     Compass(),
     Text(
-      'Index 3: Working on it',
+      '6288026 Pitipat Lertsoontornpoj \n\n'
+      '6288088 Nattapon Lertkijroongreung',
       style: optionStyle,
     ),
-
   ];
+
 
   void _onItemTapped(int index) {
     setState(() {
@@ -247,8 +248,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         backgroundColor: Color(0xFFAED581),
         onTap: _onItemTapped,
       ),
-
     );
-    // kuy big
   }
 }
