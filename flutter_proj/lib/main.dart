@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'compass.dart';
 
 void main() => runApp(const MyApp());
@@ -55,7 +56,7 @@ class MyApp extends StatelessWidget {
 }
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({Key? key, SingleChildScrollView ?body}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -68,9 +69,9 @@ class HomeScreen extends StatelessWidget {
             // The named route extracts the arguments
             // by itself.
             Image.asset(
-                'compasshome.png',
-                height: 200,
-                width: 250,
+                'compasshomee.png',
+                  height: 200,
+                  width: 250,
                 ),
             ElevatedButton(
               onPressed: () {
@@ -78,16 +79,13 @@ class HomeScreen extends StatelessWidget {
                 // navigate to a named route and
                 // provide the arguments as an optional
                 // parameter.
-                Navigator.pushNamed(
+                Navigator.push(
                   context,
-                  ExtractArgumentsScreen.routeName,
-                  arguments: ScreenArguments(
-                    'RightWays - Compass Application',
-                    'The Application that find out the best solution. | Choose Right-Way to help you',
+                  MaterialPageRoute(builder: (context) => const NavtoPage(),
                   ),
                 );
               },
-              child: const Text('To our website : Right Way Application'),
+              child: const Text('Enter : Right Way Application'),
 
             ),
             // A button that navigates to a named route.
@@ -115,6 +113,60 @@ class HomeScreen extends StatelessWidget {
                 );
               },
               child: const Text('Main feature'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+class NavtoPage extends StatelessWidget {
+  const NavtoPage({Key? key, SingleChildScrollView ?body}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Right-Way Navigation Page', style: TextStyle(color: Color(0xFF1B5E20))),
+        backgroundColor: Color(0xFFAED581),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // A button that navigates to a named route.
+            // The named route extracts the arguments
+            // by itself.
+            ElevatedButton(
+              child: const Text('Navigate to Compass Page'),
+              onPressed: () {
+                // When the user taps the button,
+                // navigate to a named route and
+                // provide the arguments as an optional
+                // parameter.
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Compass(),
+                  ),
+                );
+              },
+            ),
+            // A button that navigates to a named route.
+            // For this route, extract the arguments in
+            // the onGenerateRoute function and pass them
+            // to the screen.
+            ElevatedButton(
+              child: const Text('Navigate to About Us Page'),
+              onPressed: () {
+                // When the user taps the button, navigate
+                // to a named route and provide the arguments
+                // as an optional parameter.
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MyStatefulWidget(),
+                  ),
+                );
+              },
             ),
           ],
         ),
@@ -203,8 +255,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     Text(
       '6288026 Pitipat Lertsoontornpoj \n\n'
       '6288088 Nattapon Lertkijroongreung',
-      style: optionStyle,
-    ),
+       style: optionStyle,
+     ),
   ];
 
 

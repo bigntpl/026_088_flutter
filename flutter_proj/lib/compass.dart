@@ -9,14 +9,14 @@ void main() {
 class Compass extends StatelessWidget {
   const Compass({Key? key}) : super(key: key);
 
-  @override
+   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      debugShowCheckedModeBanner: false,
-      home: MyHomePage(),
+       theme: ThemeData(
+         primarySwatch: Colors.blue,
+       ),
+       debugShowCheckedModeBanner: false,
+       home: MyHomePage(),
     );
   }
 }
