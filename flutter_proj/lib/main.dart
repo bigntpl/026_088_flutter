@@ -102,17 +102,13 @@ class HomeScreen extends StatelessWidget {
                 // When the user taps the button, navigate
                 // to a named route and provide the arguments
                 // as an optional parameter.
-                Navigator.pushNamed(
+                Navigator.push(
                   context,
-                  PassArgumentsScreen.routeName,
-                  arguments: ScreenArguments(
-                    'Output data page',
-                    'Show what the user input on the first page and display at this page '
-
+                  MaterialPageRoute(builder: (context) => const History(title: '',),
                   ),
                 );
               },
-              child: const Text('Main feature'),
+              child: const Text('Enter :History of Compass'),
             ),
           ],
         ),
@@ -316,14 +312,79 @@ class NavtoAbout extends StatelessWidget {
         backgroundColor: Color(0xFFAED581),
       ),
       body: Center(
-        child: TextButton(
-          onPressed: () {},
-          child: const
-          Text(
-            '6288026 Pitipat Lertsoontornpoj \n\n'
-                '6288088 Nattapon Lertkijroongreung',
-            style: optionStyle,
+        child: Column(
+            children: <Widget>[
+              SizedBox(
+                height: 15.0,
+              ),
+              Text(
+                '6288026 Pitipat Lertsoontornpoj',
+                style: optionStyle,
+              ),
+              SizedBox(
+                height: 10.0,
+              ),
+              Image.asset(
+                'Com.jpg',
+                height: 250,
+                width: 250,
+              ),
+              SizedBox(
+                height: 15.0,
+              ),
+              Text(
+                '6288088 Nattapon Lertkijroongrueng',
+                style: optionStyle,
+              ),
+              SizedBox(
+                height: 10.0,
+              ),
+              Image.asset(
+                'Big.jpg',
+                height: 250,
+                width: 250,
+              ),]
+        ),
+      ),
+    );
+  }
+}
+class History extends StatelessWidget {
+  const History({Key? key, required this.title}) : super(key: key);
+  static const TextStyle optionStyle =
+  TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Color(0xFFE65100));
+  final String title;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Right-Way Compass History', style: TextStyle(color: Color(0xFF1B5E20))),
+        backgroundColor: Color(0xFFAED581),
+      ),
+      body: Center(
+        child: Column(
+          children: <Widget>[
+          Image.asset(
+            'overview.png',
+            height: 300,
+            width: 350,
           ),
+            SizedBox(
+                height: 10.0,
+            ),
+            Text(
+              'History of Compass',
+              style: optionStyle,
+            ),
+            SizedBox(
+              height: 14.0,
+            ),
+            Text(
+              'The compass was invented in China during the Han Dynasty '
+                  'between the 2nd century BC and 1st century AD where it was called the "south-governor" or "South Pointing Fish" (sīnán 司南). '
+                  'The magnetic compass was not, at first, used for navigation, but for geomancy and fortune-telling by the Chinese.',
+               style: TextStyle (fontSize: 18, fontWeight: FontWeight.w600, color: Color(0xFFFF7043)),
+            ),]
         ),
       ),
     );
