@@ -93,7 +93,7 @@ class HomeScreen extends StatelessWidget {
             // the onGenerateRoute function and pass them
             // to the screen.
             Image.asset(
-                'compass2.jpg',
+                'compasshome2.png',
                 height: 200,
                 width: 250,
                 ),
@@ -163,7 +163,7 @@ class NavtoPage extends StatelessWidget {
                 // as an optional parameter.
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const MyStatefulWidget(),
+                  MaterialPageRoute(builder: (context) => const NavtoAbout(title: '',),
                   ),
                 );
               },
@@ -248,7 +248,7 @@ class MyStatefulWidget extends StatefulWidget {
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
-  TextStyle(fontSize: 20, fontWeight: FontWeight.bold);
+  TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Color(0xFFE65100));
   static List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
     Compass(),
@@ -285,7 +285,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             backgroundColor: Color(0xFFAED581),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
+            icon: Icon(Icons.assistant_navigation),
             label: 'Compass',
             backgroundColor: Color(0xFFAED581),
           ),
@@ -299,6 +299,32 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         selectedItemColor: Color(0xFF1B5E20),
         backgroundColor: Color(0xFFAED581),
         onTap: _onItemTapped,
+      ),
+    );
+  }
+}
+class NavtoAbout extends StatelessWidget {
+  const NavtoAbout({Key? key, required this.title}) : super(key: key);
+  static const TextStyle optionStyle =
+  TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Color(0xFFE65100));
+  final String title;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Right-Way AboutUs', style: TextStyle(color: Color(0xFF1B5E20))),
+        backgroundColor: Color(0xFFAED581),
+      ),
+      body: Center(
+        child: TextButton(
+          onPressed: () {},
+          child: const
+          Text(
+            '6288026 Pitipat Lertsoontornpoj \n\n'
+                '6288088 Nattapon Lertkijroongreung',
+            style: optionStyle,
+          ),
+        ),
       ),
     );
   }
