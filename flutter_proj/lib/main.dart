@@ -85,7 +85,11 @@ class HomeScreen extends StatelessWidget {
                   ),
                 );
               },
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Color(0xFFAED581)),
+              ),
               child: const Text('Enter : Right Way Application'),
+              // back
 
             ),
             // A button that navigates to a named route.
@@ -108,6 +112,9 @@ class HomeScreen extends StatelessWidget {
                   ),
                 );
               },
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Color(0xFFAED581)),
+              ),
               child: const Text('Enter :History of Compass'),
             ),
           ],
@@ -146,7 +153,11 @@ class NavtoPage extends StatelessWidget {
                   ),
                 );
               },
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Color(0xFFAED581)),
+              ),
             ),
+            // backgroundColor: Color(0xFFAED581),
             // A button that navigates to a named route.
             // For this route, extract the arguments in
             // the onGenerateRoute function and pass them
@@ -163,6 +174,9 @@ class NavtoPage extends StatelessWidget {
                   ),
                 );
               },
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Color(0xFFAED581)),
+              ),
             ),
           ],
         ),
@@ -245,16 +259,43 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
   TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Color(0xFFE65100));
-  static List<Widget> _widgetOptions = <Widget>[
-    HomeScreen(),
-    Compass(),
-    Text(
-      '6288026 Pitipat Lertsoontornpoj \n\n'
-      '6288088 Nattapon Lertkijroongreung',
-       style: optionStyle,
-     ),
+  static final List<Widget> _widgetOptions = <Widget>[
+    const HomeScreen(),
+    const Compass(),
+    Column(
+        children: <Widget>[
+          const SizedBox(
+            height: 15.0,
+          ),
+          const Text(
+            '6288026 Pitipat Lertsoontornpoj',
+            style: optionStyle,
+          ),
+          const SizedBox(
+            height: 10.0,
+          ),
+          Image.asset(
+            'Com.jpg',
+            height: 220,
+            width: 220,
+          ),
+          const SizedBox(
+            height: 15.0,
+          ),
+          const Text(
+            '6288088 Nattapon Lertkijroongreung',
+            style: optionStyle,
+          ),
+          const SizedBox(
+            height: 10.0,
+          ),
+          Image.asset(
+            'Big.jpg',
+            height: 220,
+            width: 220,
+          ),]
+    ),
   ];
-
 
   void _onItemTapped(int index) {
     setState(() {
@@ -267,7 +308,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Right-Way', style: TextStyle(color: Color(0xFF1B5E20))),
-        backgroundColor: Color(0xFFAED581),
+        backgroundColor: const Color(0xFFAED581),
       ),
       body: Center(
         child: 
@@ -299,6 +340,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     );
   }
 }
+
 class NavtoAbout extends StatelessWidget {
   const NavtoAbout({Key? key, required this.title}) : super(key: key);
   static const TextStyle optionStyle =
@@ -309,19 +351,19 @@ class NavtoAbout extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Right-Way AboutUs', style: TextStyle(color: Color(0xFF1B5E20))),
-        backgroundColor: Color(0xFFAED581),
+        backgroundColor: const Color(0xFFAED581),
       ),
       body: Center(
         child: Column(
             children: <Widget>[
-              SizedBox(
+              const SizedBox(
                 height: 15.0,
               ),
-              Text(
+              const Text(
                 '6288026 Pitipat Lertsoontornpoj',
                 style: optionStyle,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10.0,
               ),
               Image.asset(
@@ -329,14 +371,14 @@ class NavtoAbout extends StatelessWidget {
                 height: 250,
                 width: 250,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15.0,
               ),
-              Text(
-                '6288088 Nattapon Lertkijroongrueng',
+              const Text(
+                '6288088 Nattapon Lertkijroongreung',
                 style: optionStyle,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10.0,
               ),
               Image.asset(
@@ -359,7 +401,7 @@ class History extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Right-Way Compass History', style: TextStyle(color: Color(0xFF1B5E20))),
-        backgroundColor: Color(0xFFAED581),
+        backgroundColor: const Color(0xFFAED581),
       ),
       body: Center(
         child: Column(
@@ -369,17 +411,17 @@ class History extends StatelessWidget {
             height: 300,
             width: 350,
           ),
-            SizedBox(
+            const SizedBox(
                 height: 10.0,
             ),
-            Text(
+            const Text(
               'History of Compass',
               style: optionStyle,
             ),
-            SizedBox(
+            const SizedBox(
               height: 14.0,
             ),
-            Text(
+            const Text(
               'The compass was invented in China during the Han Dynasty '
                   'between the 2nd century BC and 1st century AD where it was called the "south-governor" or "South Pointing Fish" (sīnán 司南). '
                   'The magnetic compass was not, at first, used for navigation, but for geomancy and fortune-telling by the Chinese.',
