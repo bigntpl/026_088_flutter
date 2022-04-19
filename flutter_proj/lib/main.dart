@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'compass.dart';
 
 void main() => runApp(const MyApp());
@@ -55,7 +56,7 @@ class MyApp extends StatelessWidget {
 }
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({Key? key, SingleChildScrollView ?body}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -68,9 +69,9 @@ class HomeScreen extends StatelessWidget {
             // The named route extracts the arguments
             // by itself.
             Image.asset(
-                'compasshome.png',
-                height: 200,
-                width: 250,
+                'compasshomee.png',
+                  height: 200,
+                  width: 250,
                 ),
             ElevatedButton(
               onPressed: () {
@@ -78,16 +79,17 @@ class HomeScreen extends StatelessWidget {
                 // navigate to a named route and
                 // provide the arguments as an optional
                 // parameter.
-                Navigator.pushNamed(
+                Navigator.push(
                   context,
-                  ExtractArgumentsScreen.routeName,
-                  arguments: ScreenArguments(
-                    'RightWays - Compass Application',
-                    'The Application that find out the best solution. | Choose Right-Way to help you',
+                  MaterialPageRoute(builder: (context) => const NavtoPage(),
                   ),
                 );
               },
-              child: const Text('To our website : Right Way Application'),
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Color(0xFFAED581)),
+              ),
+              child: const Text('Enter : Right Way Application'),
+              // back
 
             ),
             // A button that navigates to a named route.
@@ -95,7 +97,7 @@ class HomeScreen extends StatelessWidget {
             // the onGenerateRoute function and pass them
             // to the screen.
             Image.asset(
-                'compass2.jpg',
+                'compasshome2.png',
                 height: 200,
                 width: 250,
                 ),
@@ -104,17 +106,77 @@ class HomeScreen extends StatelessWidget {
                 // When the user taps the button, navigate
                 // to a named route and provide the arguments
                 // as an optional parameter.
-                Navigator.pushNamed(
+                Navigator.push(
                   context,
-                  PassArgumentsScreen.routeName,
-                  arguments: ScreenArguments(
-                    'Output data page',
-                    'Show what the user input on the first page and display at this page '
-
+                  MaterialPageRoute(builder: (context) => const History(title: '',),
                   ),
                 );
               },
-              child: const Text('Main feature'),
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Color(0xFFAED581)),
+              ),
+              child: const Text('Enter :History of Compass'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+class NavtoPage extends StatelessWidget {
+  const NavtoPage({Key? key, SingleChildScrollView ?body}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Right-Way Navigation Page', style: TextStyle(color: Color(0xFF1B5E20))),
+        backgroundColor: Color(0xFFAED581),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // A button that navigates to a named route.
+            // The named route extracts the arguments
+            // by itself.
+            ElevatedButton(
+              child: const Text('Navigate to Compass Page'),
+              onPressed: () {
+                // When the user taps the button,
+                // navigate to a named route and
+                // provide the arguments as an optional
+                // parameter.
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Compass(),
+                  ),
+                );
+              },
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Color(0xFFAED581)),
+              ),
+            ),
+            // backgroundColor: Color(0xFFAED581),
+            // A button that navigates to a named route.
+            // For this route, extract the arguments in
+            // the onGenerateRoute function and pass them
+            // to the screen.
+            ElevatedButton(
+              child: const Text('Navigate to About Us Page'),
+              onPressed: () {
+                // When the user taps the button, navigate
+                // to a named route and provide the arguments
+                // as an optional parameter.
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const NavtoAbout(title: '',),
+                  ),
+                );
+              },
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Color(0xFFAED581)),
+              ),
             ),
           ],
         ),
@@ -196,15 +258,43 @@ class MyStatefulWidget extends StatefulWidget {
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
-  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static List<Widget> _widgetOptions = <Widget>[
-    HomeScreen(),
-    Compass(),
-    Text(
-      'Index 3: Working on it',
-      style: optionStyle,
+  TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Color(0xFFE65100));
+  static final List<Widget> _widgetOptions = <Widget>[
+    const HomeScreen(),
+    const Compass(),
+    Column(
+        children: <Widget>[
+          const SizedBox(
+            height: 15.0,
+          ),
+          const Text(
+            '6288026 Pitipat Lertsoontornpoj',
+            style: optionStyle,
+          ),
+          const SizedBox(
+            height: 10.0,
+          ),
+          Image.asset(
+            'Com.jpg',
+            height: 220,
+            width: 220,
+          ),
+          const SizedBox(
+            height: 15.0,
+          ),
+          const Text(
+            '6288088 Nattapon Lertkijroongreung',
+            style: optionStyle,
+          ),
+          const SizedBox(
+            height: 10.0,
+          ),
+          Image.asset(
+            'Big.jpg',
+            height: 220,
+            width: 220,
+          ),]
     ),
-
   ];
 
   void _onItemTapped(int index) {
@@ -218,7 +308,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Right-Way', style: TextStyle(color: Color(0xFF1B5E20))),
-        backgroundColor: Color(0xFFAED581),
+        backgroundColor: const Color(0xFFAED581),
       ),
       body: Center(
         child: 
@@ -232,7 +322,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             backgroundColor: Color(0xFFAED581),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
+            icon: Icon(Icons.assistant_navigation),
             label: 'Compass',
             backgroundColor: Color(0xFFAED581),
           ),
@@ -247,7 +337,98 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         backgroundColor: Color(0xFFAED581),
         onTap: _onItemTapped,
       ),
+    );
+  }
+}
 
+class NavtoAbout extends StatelessWidget {
+  const NavtoAbout({Key? key, required this.title}) : super(key: key);
+  static const TextStyle optionStyle =
+  TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Color(0xFFE65100));
+  final String title;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Right-Way AboutUs', style: TextStyle(color: Color(0xFF1B5E20))),
+        backgroundColor: const Color(0xFFAED581),
+      ),
+      body: Center(
+        child: Column(
+            children: <Widget>[
+              const SizedBox(
+                height: 15.0,
+              ),
+              const Text(
+                '6288026 Pitipat Lertsoontornpoj',
+                style: optionStyle,
+              ),
+              const SizedBox(
+                height: 10.0,
+              ),
+              Image.asset(
+                'Com.jpg',
+                height: 250,
+                width: 250,
+              ),
+              const SizedBox(
+                height: 15.0,
+              ),
+              const Text(
+                '6288088 Nattapon Lertkijroongreung',
+                style: optionStyle,
+              ),
+              const SizedBox(
+                height: 10.0,
+              ),
+              Image.asset(
+                'Big.jpg',
+                height: 250,
+                width: 250,
+              ),]
+        ),
+      ),
+    );
+  }
+}
+class History extends StatelessWidget {
+  const History({Key? key, required this.title}) : super(key: key);
+  static const TextStyle optionStyle =
+  TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Color(0xFFE65100));
+  final String title;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Right-Way Compass History', style: TextStyle(color: Color(0xFF1B5E20))),
+        backgroundColor: const Color(0xFFAED581),
+      ),
+      body: Center(
+        child: Column(
+          children: <Widget>[
+          Image.asset(
+            'overview.png',
+            height: 300,
+            width: 350,
+          ),
+            const SizedBox(
+                height: 10.0,
+            ),
+            const Text(
+              'History of Compass',
+              style: optionStyle,
+            ),
+            const SizedBox(
+              height: 14.0,
+            ),
+            const Text(
+              'The compass was invented in China during the Han Dynasty '
+                  'between the 2nd century BC and 1st century AD where it was called the "south-governor" or "South Pointing Fish" (sīnán 司南). '
+                  'The magnetic compass was not, at first, used for navigation, but for geomancy and fortune-telling by the Chinese.',
+               style: TextStyle (fontSize: 18, fontWeight: FontWeight.w600, color: Color(0xFFFF7043)),
+            ),]
+        ),
+      ),
     );
   }
 }

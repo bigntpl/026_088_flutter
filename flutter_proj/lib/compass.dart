@@ -9,14 +9,15 @@ void main() {
 class Compass extends StatelessWidget {
   const Compass({Key? key}) : super(key: key);
 
-  @override
+   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      debugShowCheckedModeBanner: false,
-      home: MyHomePage(),
+       theme: ThemeData(
+         primarySwatch: Colors.blue,
+         backgroundColor: Colors.white,
+       ),
+       debugShowCheckedModeBanner: false,
+       home: MyHomePage(),
     );
   }
 }
@@ -34,7 +35,6 @@ class _MyHomePageState extends State<MyHomePage> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: const HSLColor.fromAHSL(0, 255, 0, 0.05).toColor(),
         body: Builder(builder: (context) {
           return Column(
             children: <Widget>[
@@ -108,7 +108,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 width: width / 80,
                 height: width / 10,
                 child: Container(
-                  //color: HSLColor.fromAHSL(0.85, 0, 0, 0.05).toColor(),
                   color: const Color(0xBBEBEBEB),
                 ),
               ),
